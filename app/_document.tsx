@@ -3,7 +3,7 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import { Html, Head, Main, NextScript } from "next/document";
 
-const Document = () => {
+const Document = ({ children }: any) => {
   return (
     <Html>
       <Head>
