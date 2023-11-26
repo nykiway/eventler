@@ -1,10 +1,11 @@
 "use client";
 
-import { ChakraProvider } from "@chakra-ui/react";
 import { WhiteBackground } from "./styles/components/containers/flex";
 import Footer from "./components/Footer";
 import { Logo } from "./styles/components/typography";
 import { Providers } from "./providers";
+import { Flex } from "@chakra-ui/react";
+import Header from "../app/components/Header";
 
 export default function RootLayout({
   children,
@@ -15,11 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <WhiteBackground>
-            <Logo>eventler.</Logo>
+          <Flex flexDir="column">
+            <Header />
             {children}
             <Footer />
-          </WhiteBackground>
+          </Flex>
         </Providers>
       </body>
     </html>

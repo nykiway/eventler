@@ -71,5 +71,8 @@ export const Logo = styled(Text, {
     fontStyle: "italic",
     margin: 0,
     marginBottom: "15px",
+    alignSelf: "center",
+    ml: 10,
+    mt: 5,
   },
 });
