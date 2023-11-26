@@ -1,12 +1,10 @@
 "use client";
 
-import { Logo } from "./styles/components/typography";
-import StyledComponentsRegistry from "./registry";
-import { ThemeProvider } from "styled-components";
-import theme from "./styles/theme";
-import GlobalStyles from "./styles/GlobalStyles";
+import { ChakraProvider } from "@chakra-ui/react";
 import { WhiteBackground } from "./styles/components/containers/flex";
 import Footer from "./components/Footer";
+import { Logo } from "./styles/components/typography";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -16,15 +14,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <WhiteBackground>
-              {children}
-              <Footer />
-            </WhiteBackground>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+        <Providers>
+          <WhiteBackground>
+            <Logo>eventler.</Logo>
+            {children}
+            <Footer />
+          </WhiteBackground>
+        </Providers>
       </body>
     </html>
   );

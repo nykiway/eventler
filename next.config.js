@@ -2,7 +2,10 @@
 const nextConfig = {
   compiler: {
     // Enables the styled-components SWC transform
-    styledComponents: true,
+    styledComponents: {
+      ssr: true,
+      displayName: true,
+    }
   }
 }
 

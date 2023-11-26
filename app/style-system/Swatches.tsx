@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { styled } from "styled-components";
 import Image from "next/image";
 import CopyIcon from "../styles/icons/copy-icon.svg";
 
@@ -46,25 +45,26 @@ const Swatches = () => {
   return (
     <>
       {SWATCHES.map(({ swatch, secondary, hex, filter }, i) => (
-        <Swatch
-          key={i}
-          swatch={swatch}
-          secondary={secondary}
-          onClick={() => handleSwatchClick(swatch, hex)}
-        >
-          <InnerText secondary={secondary}>
-            {colorText[swatch as keyof StateSwatchType]}
-            <Image
-              alt="Copy Icon"
-              width={24}
-              height={24}
-              src={CopyIcon}
-              style={{
-                filter: filter,
-              }}
-            />
-          </InnerText>
-        </Swatch>
+        <></>
+        // <Swatch
+        //   key={i}
+        //   swatch={swatch}
+        //   secondary={secondary}
+        //   onClick={() => handleSwatchClick(swatch, hex)}
+        // >
+        //   <InnerText secondary={secondary}>
+        //     {colorText[swatch as keyof StateSwatchType]}
+        //     <Image
+        //       alt="Copy Icon"
+        //       width={24}
+        //       height={24}
+        //       src={CopyIcon}
+        //       style={{
+        //         filter: filter,
+        //       }}
+        //     />
+        //   </InnerText>
+        // </Swatch>
       ))}
     </>
   );
@@ -110,31 +110,31 @@ const SWATCHES: SwatchType = [
   },
 ];
 
-const InnerText = styled.div<{ secondary: string }>`
-  color: black;
-  display: none;
-  color: ${(props) => props.theme.colors?.[props?.secondary]};
-  font-size: 16px;
-  font-family: "Raleway", sans-serif;
-  font-weight: 800;
-  text-align: center;
-  margin-top: 20px;
-`;
+// const InnerText = styled.div<{ secondary: string }>`
+//   color: black;
+//   display: none;
+//   color: ${(props) => props.theme.colors?.[props?.secondary]};
+//   font-size: 16px;
+//   font-family: "Raleway", sans-serif;
+//   font-weight: 800;
+//   text-align: center;
+//   margin-top: 20px;
+// `;
 
-const Swatch = styled.div<{ swatch: string; secondary: string }>`
-  background-color: ${(props) => props.theme.colors?.[props?.swatch]};
-  height: 75px;
-  width: 75px;
-  border: 1px solid ${(props) => props.theme.colors?.[props?.secondary]};
-  border-radius: 10px;
-  margin: 5px;
-  &:hover ${InnerText} {
-    display: block;
-    transition: all 2s ease-in-out;
-  }
-  &:hover {
-    color: ${(props) => props.theme.colors?.[props?.secondary]};
-    transition: all 2s ease-in-out;
-  }
-  transition: all 2s ease-in-out;
-`;
+// const Swatch = styled.div<{ swatch: string; secondary: string }>`
+//   background-color: ${(props) => props.theme.colors?.[props?.swatch]};
+//   height: 75px;
+//   width: 75px;
+//   border: 1px solid ${(props) => props.theme.colors?.[props?.secondary]};
+//   border-radius: 10px;
+//   margin: 5px;
+//   &:hover ${InnerText} {
+//     display: block;
+//     transition: all 2s ease-in-out;
+//   }
+//   &:hover {
+//     color: ${(props) => props.theme.colors?.[props?.secondary]};
+//     transition: all 2s ease-in-out;
+//   }
+//   transition: all 2s ease-in-out;
+// `;

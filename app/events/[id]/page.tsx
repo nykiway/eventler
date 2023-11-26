@@ -1,21 +1,17 @@
 "use client";
 
 import {
-  GridContainer,
-  GridDiv1,
-  GridDiv2,
-  GridDiv3,
-  GridDiv4,
-} from "@/app/styles/components/containers/grid";
-import {
   DisplayText,
   LabelText,
   SubHeader,
 } from "@/app/styles/components/typography";
-import { SecondaryButton } from "@/app/styles/components/Buttons";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getEvent } from "@/app/requests/events";
+import CheckboxIcon from "../../styles/icons/checkbox.svg";
+import Image from "next/image";
+import GuestList from "./GuestList";
+import Venue, { AddVenueModal } from "./Venue";
 
 export default () => {
   const params = usePathname().split("/");
@@ -28,25 +24,27 @@ export default () => {
     }
   }, [event]);
 
+  const calculateRSVPdYes = () =>
+    event?.guests.filter((guest: { rsvp: boolean }) => guest?.rsvp === true)
+      ?.length;
+
   return (
     <>
-      <DisplayText>{event?.[0]?.eventName || ""}</DisplayText>
-      <SubHeader>{event?.[0]?.eventDate || ""}</SubHeader>
-      <GridContainer>
-        <GridDiv1>
-          <LabelText>Primary Details</LabelText>
-          <SecondaryButton>Add Details</SecondaryButton>
-        </GridDiv1>
-        <GridDiv2>
-          <LabelText>Banner</LabelText>
-        </GridDiv2>
-        <GridDiv3>
-          <LabelText>Vendors</LabelText>
-        </GridDiv3>
-        <GridDiv4>
-          <LabelText>Guests</LabelText>
-        </GridDiv4>
-      </GridContainer>
+      <DisplayText>{event?.eventName || ""}</DisplayText>
+      <SubHeader>{event?.eventDate || ""}</SubHeader>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "30px",
+          flexDirection: "row",
+          gap: "30px",
+        }}
+      >
+        <GuestList event={event} />
+        <Venue venueId={event?.venue_id} />
+      </div>
     </>
   );
 };

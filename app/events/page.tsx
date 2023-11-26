@@ -10,8 +10,7 @@ import {
 import { DisplayText, LabelText, Logo } from "../styles/components/typography";
 import { useEffect, useState } from "react";
 import { getUserEvents } from "../requests/events";
-import Skeleton from "../styles/components/containers/skeleton";
-import Footer from "../components/Footer";
+import { Skeleton } from "@chakra-ui/react";
 
 export default () => {
   const router = useRouter();
@@ -28,9 +27,6 @@ export default () => {
   return (
     <>
       <GrayBackground>
-        <WhiteBox>
-          <Logo>eventler.</Logo>
-        </WhiteBox>
         <DisplayText>Select an Event</DisplayText>
         <CenteredRow>
           {!userEvents ? (

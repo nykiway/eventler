@@ -7,10 +7,11 @@ export async function GET(req, res) {
     const db = client.db("eventler");
 
     const UrlParams = req?.url.split("/");
+
     const ID = new ObjectId(UrlParams?.[UrlParams.length - 1]);
 
     
-    const event = await db.collection("events").find({"_id": ID}).toArray();
+    const event = await db.collection("venues").find({"_id": ID}).toArray();
     return Response.json(event[0]);
   } catch(e) {
     console.error(e);
