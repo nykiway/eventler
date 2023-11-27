@@ -37,7 +37,7 @@ const AddNewEventModal = ({
 }) => {
   const [eventDate, setEventDate] = useState<Date | null>(new Date());
 
-  function validateEventName(value) {
+  function validateEventName(value: string) {
     if (!value) return "Event name is required";
   }
 
@@ -93,7 +93,7 @@ const AddNewEventModal = ({
                 <Field>
                   {({ field, form }: { field: any; form: any }) => (
                     <FormControl>
-                      <StyledFormLabel>Event Date</StyledFormLabel>
+                      <StyledFormLabel>Number of Guests</StyledFormLabel>
                       <NumberInput step={1} defaultValue={1} min={1}>
                         <NumberInputField />
                         <NumberInputStepper>
